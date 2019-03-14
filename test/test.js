@@ -1,5 +1,6 @@
 import { expect } from "chai"
 
+// import "../src/ol3-sidebar.css"
 import { Sidebar } from "../src/index"
 
 
