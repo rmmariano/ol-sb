@@ -6,7 +6,9 @@ A small npm package based on sidebar-v2 for OpenLayers 3 from Tobias Bieniek (ht
 
 ## Installation
 
-  `npm install @rmmariano/ol-sb`
+```
+npm install @rmmariano/ol-sb
+```
 
 
 ## Usage
@@ -16,7 +18,12 @@ A small npm package based on sidebar-v2 for OpenLayers 3 from Tobias Bieniek (ht
 
 ## Tests
 
-  `git clone https://github.com/rmmariano/ol-sb.git`
-  `cd ol-sb`
-  `npm install`
-  `npm test`
+```
+git clone https://github.com/rmmariano/ol-sb.git
+
+cd ol-sb
+
+npm install
+
+npm test
+```
