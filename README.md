@@ -1,15 +1,15 @@
-test
+ol-sb
 =========
 
-A small library
+A small npm package related to sidebar-v2 from Turbo87 (https://github.com/Turbo87/sidebar-v2)
 
 ## Installation
 
-  `npm install @rmmariano/test_module_01`
+  `npm install @rmmariano/ol-sb`
 
 ## Usage
 
-    var numFormatter = require('@rmmariano/test_module_01');
+    var numFormatter = require('@rmmariano/ol-sb');
 
     var formattedNum = numFormatter(35666);
   

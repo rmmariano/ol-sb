@@ -1,4 +1,8 @@
-ol.control.Sidebar = function (settings) {
+import { Control } from 'ol/control.js';
+import { inherits } from 'ol'
+
+
+function Sidebar (settings) {
 
     var defaults = {
         element: null,
@@ -7,7 +11,7 @@ ol.control.Sidebar = function (settings) {
 
     this._options = Object.assign({}, defaults, settings);
 
-    ol.control.Control.call(this, {
+    Control.call(this, {
         element: document.getElementById(this._options.element),
         target: this._options.target
     });
@@ -47,9 +51,9 @@ ol.control.Sidebar = function (settings) {
     }
 };
 
-ol.inherits(ol.control.Sidebar, ol.control.Control);
+inherits(Sidebar, Control);
 
-ol.control.Sidebar.prototype.setMap = function(map) {
+Sidebar.prototype.setMap = function(map) {
     var i, child;
 
     for (i = this._tabitems.length - 1; i >= 0; i--) {
@@ -66,7 +70,7 @@ ol.control.Sidebar.prototype.setMap = function(map) {
     }
 };
 
-ol.control.Sidebar.prototype.open = function(id) {
+Sidebar.prototype.open = function(id) {
     var i, child;
 
     // hide old ol-sb-active contents and show new content
@@ -88,14 +92,13 @@ ol.control.Sidebar.prototype.open = function(id) {
     }
 
     // open ol-sb-sidebar (if necessary)
-    if (this.element.classList.contains('ol-sb-collapsed')) {
+    if (this.element.classList.contains('ol-sb-collapsed'))
         this.element.classList.remove('ol-sb-collapsed');
-    }
 
     return this;
 };
 
-ol.control.Sidebar.prototype.close = function() {
+Sidebar.prototype.close = function() {
     // remove old ol-sb-active highlights
     for (var i = this._tabitems.length - 1; i >= 0; i--) {
         var child = this._tabitems[i];
@@ -104,14 +107,13 @@ ol.control.Sidebar.prototype.close = function() {
     }
 
     // close ol-sb-sidebar
-    if (!this.element.classList.contains('ol-sb-collapsed')) {
+    if (!this.element.classList.contains('ol-sb-collapsed'))
         this.element.classList.add('ol-sb-collapsed');
-    }
 
     return this;
 };
 
-ol.control.Sidebar.prototype._onClick = function(evt) {
+Sidebar.prototype._onClick = function(evt) {
     evt.preventDefault();
     if (this.classList.contains('ol-sb-active')) {
         this._sidebar.close();
@@ -120,6 +122,10 @@ ol.control.Sidebar.prototype._onClick = function(evt) {
     }
 };
 
-ol.control.Sidebar.prototype._onCloseClick = function() {
+Sidebar.prototype._onCloseClick = function() {
     this.close();
 };
+
+export { 
+    Sidebar 
+}
