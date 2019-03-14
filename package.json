@@ -1,14 +1,14 @@
 {
   "name": "@rmmariano/ol-sb",
   "version": "1.0.0-rc.1",
-  "description": "",
+  "description": "A small npm package based on sidebar-v2 for OpenLayers 3 from Tobias Bieniek (https://github.com/Turbo87/sidebar-v2)",
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon --exec babel-node ./src/index.js",
     "test": "./node_modules/.bin/mocha --require @babel/register"
   },
   "keywords": [],
-  "author": "",
+  "author": "npm package: Rodrigo Mariano; sidebar-v2: Tobias Bieniek",
   "license": "ISC",
   "engines": {
     "node": ">=11.0.0"

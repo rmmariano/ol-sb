@@ -3,20 +3,38 @@ import { expect } from "chai"
 // import "../src/ol3-sidebar.css"
 import { Sidebar } from "../src/index"
 
+import Map from 'ol/Map'
+import View from 'ol/View'
+
+import TileLayer from 'ol/layer/Tile'
+import XYZ from 'ol/source/XYZ'
+
 
 describe('main', function() {
 
     describe('index', function() {
-        it('should say hello', function() {
-            // var result = sayHello()
-            expect(1).to.equal(1)
-        })
-    })
+        it('should not raise an exception', function() {
 
-    describe('myModule', function() {
-        it('should show hello world', function() {
-            // var result = helloWorld()
-            expect(2).to.equal(2)
+            var map = new Map({
+                target: 'map',
+                layers: [
+                    new TileLayer({
+                        source: new XYZ({
+                            url: "https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        })
+                    })
+                ],
+                view: new View({
+                    center: ol.proj.transform([7, 51.2], 'EPSG:4326', 'EPSG:3857'),
+                    zoom: 4
+                })
+            })
+    
+            var sidebar = new Sidebar({ element: 'ol-sb-sidebar', position: 'left' })
+    
+            map.addControl(sidebar)
+
+            expect(1).to.equal(1)
         })
     })
 })
